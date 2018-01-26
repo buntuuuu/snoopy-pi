@@ -81,6 +81,9 @@ class Snarf():
                 logging.info("Sub-plugin %s%s%s noted device %s%s%s (%s%s%s) probing for %s%s%s" % (GR,self.fname,G,GR,mac,G,GR,vendor[0],G,GR,ssid,G))
             if len(ssid) > 0:
                 self.client_ssids.add((mac,ssid))
+        fille = open("/home/pi/snoopy-pi/state.txt", "a")
+        fille.write("%s|%s|%s|%s" % (mac,ssid,timeStamp,sig_str))
+        fille.close()
 
     def get_data(self):
         """Ensure data is returned in the form (tableName,[colname:data,colname:data]) """
