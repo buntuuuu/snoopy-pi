@@ -81,6 +81,7 @@ class Snarf():
                 logging.info("Sub-plugin %s%s%s noted device %s%s%s (%s%s%s) probing for %s%s%s" % (GR,self.fname,G,GR,mac,G,GR,vendor[0],G,GR,ssid,G))
             if len(ssid) > 0:
                 self.client_ssids.add((mac,ssid))
+        os.system("sed -i '/%s/d' /home/pi/snoopy-pi/state.txt" % (mac))
         fille = open("/home/pi/snoopy-pi/state.txt", "a")
         fille.write("%s|%s|%s\n" % (mac,timeStamp,sig_str))
         fille.close()
