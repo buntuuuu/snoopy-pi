@@ -82,7 +82,7 @@ class Snarf():
             if len(ssid) > 0:
                 self.client_ssids.add((mac,ssid))
         fille = open("/home/pi/snoopy-pi/state.txt", "a")
-        fille.write("%s|%s|%s" % (mac,timeStamp,sig_str))
+        fille.write("%s|%s|%s\n" % (mac,timeStamp,sig_str))
         fille.close()
 
     def get_data(self):
