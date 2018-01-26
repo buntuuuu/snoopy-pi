@@ -81,11 +81,7 @@ echo "[+] Installing patched version of scapy..."
 pip install ./setup/scapy-latest-snoopy_patch.tar.gz
 
 # Only run this on your client, not server:
-read -r -p  "[ ] Do you want to download, compile, and install aircrack? (Do NOT install on Server) [Y/n] " response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
-then
-    
-    echo "[+] Downloading aircrack-ng..."
+echo "[+] Downloading aircrack-ng..."
 sudo apt-get -y install libssl1.0-dev
 sudo apt-get -y install libnl1
 sudo apt-get -y install libnl-dev
@@ -97,18 +93,7 @@ sudo apt-get -y install ethtool
 sudo apt-get install libssl1.0-dev
 apt-get -y install iw
 sudo apt-get install sqlite
-
-    wget http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz
-    tar xzf aircrack-ng-1.2-beta1.tar.gz
-    cd aircrack-ng-1.2-beta1
-    sudo make
-    echo "[-] Installing aircrack-ng"
-    sudo make install
-    cd ..
-   rm -rf aircrack-ng-1.2-beta1*
-    sudo airodump-ng-oui-update
-
-fi
+sudo apt install aircrack-ng
 
 echo "[+] Creating symlinks to this folder for snoopy.py."
 
