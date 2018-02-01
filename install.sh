@@ -16,7 +16,7 @@ if [ -f /etc/init.d/ntp ]; then
 	/etc/init.d/ntp stop
 else 
 	# Needed for Kali Linux build on Raspberry Pi
-	apt-get install ntp
+	apt-get install --force-yes --yes ntp
 	/etc/init.d/ntp stop
 fi
 echo "[+] Setting time with ntp"
@@ -34,7 +34,7 @@ apt-get -y update
 
 # Packages
 echo "[+] Installing required packages..."
-apt-get install --force-yes --yes python-setuptools autossh python-psutil python2.7-dev libpcap0.8-dev ppp tcpdump python-serial sqlite3 python-requests iw build-essential python-bluez python-flask python-gps python-dateutil python-dev libxml2-dev libxslt-dev pyrit mitmproxy
+apt-get --force-yes --yes install python-setuptools autossh python-psutil python2.7-dev libpcap0.8-dev ppp tcpdump python-serial sqlite3 python-requests iw build-essential python-bluez python-flask python-gps python-dateutil python-dev libxml2-dev libxslt-dev pyrit mitmproxy
 
 # Python packages
 
@@ -72,7 +72,7 @@ echo "[+] Installing pyserial 2.6"
 pip install https://pypi.python.org/packages/source/p/pyserial/pyserial-2.6.tar.gz
 
 echo "[+] Downloading pylibpcap..."
-sudo apt-get -y install python-libpcap
+sudo apt-get --force-yes --yes install python-libpcap
 
 echo "[+] Downloading dpkt..."
 pip install dpkt
@@ -90,10 +90,10 @@ echo "[+] Installing dependencies ..."
 sudo apt-get -y install libnl-genl-3-dev
 sudo apt-get -y install libssl-dev
 sudo apt-get -y install ethtool
-sudo apt-get install libssl1.0-dev
+sudo apt-get --force-yes --yes install libssl1.0-dev
 apt-get -y install iw
-sudo apt-get install sqlite
-sudo apt install aircrack-ng
+sudo apt-get --force-yes --yes install sqlite
+sudo apt --force-yes --yes install aircrack-ng
 
 echo "[+] Creating symlinks to this folder for snoopy.py."
 
